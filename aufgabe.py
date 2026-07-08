@@ -55,8 +55,8 @@ def bubble_sort(proben):
                 #print("Tausch")
 
                 # Wenn nichts vertauscht wurde, ist die Liste bereits sortiert.
-            if not vertauscht:
-                break
+        if not vertauscht:
+            break
     return proben
 
 def ausgabetabelle(proben):
@@ -97,6 +97,7 @@ def main():
     #print(bubble_sort(proben))
 
     # Schritt 4: Sortierte Proben ausgeben
+    #print(bubble_sort(proben))
     ausgabetabelle(bubble_sort(proben))
     print()
     ausgabe(bubble_sort(proben))
