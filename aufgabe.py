@@ -39,21 +39,68 @@ def berechne_durchschnittliche_dichte(proben):
 
     return durchschnittdichte
 
+def bubble_sort(proben):
+
+    n = len(proben)
+    
+
+    for i in range(n -1):
+        vertauscht = False
+
+        for j in range(n-1 - i):
+            #print(proben[j][2], proben[j+1][2])
+            if proben[j][2] > proben[j+1][2]:
+                proben[j], proben[j+1] = proben[j+1], proben[j]
+                vertauscht = True
+                #print("Tausch")
+
+                # Wenn nichts vertauscht wurde, ist die Liste bereits sortiert.
+        if not vertauscht:
+            break
+    return proben
+
+def ausgabetabelle(proben):
+    print(f"{'ID':<5} | {'Name':<15} | {'Dichte':>10} | {'Gewicht':>8}")
+    for probe in proben:
+        print(f"{probe[0]:<5} | {probe[1]:<15} | {probe[2]:>10.1f} | {probe[3]:>8.1f}")
+
+    return
+
+def ausgabe(proben):
+    namenNachDichte = []
+
+    for probe in proben:
+        namenNachDichte.append(probe[1])
+
+    for index, name in enumerate(namenNachDichte):
+        print(f"{index}: {name}")
+    
+    return
+    
+    
+
+
+
 
 
 def main():
-    print("Willkommen zum Dichteanalyse-Programm!")
+    print("Willkommen zum Dichteanalyse-Programm!\n" )
     # Schritt 1: Dateninitialisierung
     #initialisierung_proben()
 
     proben = initialisierung_proben()
 
     # Schritt 2: Durchschnittliche Dichte berechnen
-    print(berechne_durchschnittliche_dichte(proben))
+    print(berechne_durchschnittliche_dichte(proben),"\n")
 
     # Schritt 3: Bubble Sort anwenden
+    #print(bubble_sort(proben))
 
     # Schritt 4: Sortierte Proben ausgeben
+    #print(bubble_sort(proben))
+    ausgabetabelle(bubble_sort(proben))
+    print()
+    ausgabe(bubble_sort(proben))
 
     # Schritt 5: Visualisierung der Dichteverteilung
 
